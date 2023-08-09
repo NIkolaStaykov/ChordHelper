@@ -31,7 +31,11 @@ class ChordGenerator:
 if __name__ == '__main__':
     while True:
         # Wait for user to press a button
-        key = msvcrt.getch().decode('ASCII')
-        if key == 'q':  # ESC
+        key = msvcrt.getch()
+        if key == b'\x00' or key == b'\xe0':  # Special keys
+            key = msvcrt.getch()
+        key = key.decode('utf-8')
+
+        if key == 'q':  # If q is pressed, quit
             break
         print(str(ChordGenerator.generate_string().value) + ' ' + ChordGenerator.generate_note())

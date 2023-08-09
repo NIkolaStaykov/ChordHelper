@@ -1,0 +1,4 @@
+1) Tuner detecting and validating promp
+2) Timer and score
+3) Score history and database
+4) Drill types, abstract class
